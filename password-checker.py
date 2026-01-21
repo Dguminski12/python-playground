@@ -1,14 +1,12 @@
 password = input("Enter your password: ")
 
-weak_password = 2
 medium_password = 3
-strong_password = 4
-
-checks_passed = 0
+strong_password = 5
 
 
 def check_password_strength(pw):
-    if len(pw) > 8:
+    checks_passed = 0
+    if len(pw) >= 8:
         checks_passed += 1
     if any(char.isdigit() for char in pw):
         checks_passed += 1
@@ -23,11 +21,11 @@ def check_password_strength(pw):
 
 def evaluate_strength(checks):
     if checks >= strong_password:
-        return "Strong password"
+        return "Strong"
     elif checks >= medium_password:
-        return "Medium password"
+        return "Medium"
     else:
-        return "Weak password"
+        return "Weak"
 
 checks = check_password_strength(password)
 strength = evaluate_strength(checks) 
